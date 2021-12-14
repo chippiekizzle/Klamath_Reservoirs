@@ -1,0 +1,89 @@
+---
+title: "Regression_Microcystin"
+author: "Chippie"
+date: "11/16/2021"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+```
+
+Read in the Data
+```{r}
+Microcystin <- read.csv("2015_2020_15m_Microcystin_3Sites.csv", header = TRUE)
+colnames(Microcystin)[1] <- "Sample_Date"
+```
+
+Prepare the Data
+```{r}
+
+require(ggplot2)
+library(scales)
+library(lubridate)
+
+Date <- mdy(Microcystin$Sample_Date)
+Date <- as.Date(Date)
+
+#View(Microcystin)
+```
+
+Plot the Microcystin Data
+
+```{r}
+
+min <- as.Date("2015-10-1")
+max <- as.Date("2021-4-1")
+
+#Change y = to "Microcystin_C", "Microcystin_BC", & "Microcystin_IG"
+
+m <- 
+    ggplot(Microcystin, aes(x = Date, y = Microcystin_IG)) +
+   # geom_line( color = "grey") +
+    geom_point( shape=21, color="black", fill="darkgreen", size=3) +
+  #geom_smooth() +
+   ylab("Microcystin (ug/L)") +
+  xlab("Date") + 
+  (scale_x_date(breaks=date_breaks("1 year"), labels=date_format("%Y"), limits = c(min, max))) +
+  theme(axis.title.x = element_text(face="bold", colour="black", size=15),
+           axis.text.x  = element_text(angle=0, vjust=0.5, size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=15),
+           axis.text.y  = element_text(angle=0, vjust=0.5, size=13)) +
+  theme(axis.text.y=element_text(angle = 0, hjust = 0)) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 20, b = 10, l = 5))) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.text.x = element_text(margin = margin(t = 5, r = 5, b = 10, l = 5))) 
+ 
+
+m
+```
+
+Plot the Chlorophyll-a Data
+
+```{r}
+min <- as.Date("2015-10-1")
+max <- as.Date("2021-4-1")
+
+#Change y = to "ChlA_C", "ChlA_BC", & "ChlA_IG"
+
+c <- 
+    ggplot(Microcystin, aes(x = Date, y = ChlA_IG)) +
+   # geom_line( color = "grey") +
+    geom_point( shape=21, color="black", fill="blue", size=3) +
+  #geom_smooth() +
+   ylab("Chlorophyll-a (ug/L)") +
+  xlab("Date") + 
+  (scale_x_date(breaks=date_breaks("1 year"), labels=date_format("%Y"), limits = c(min, max))) +
+  theme(axis.title.x = element_text(face="bold", colour="black", size=15),
+           axis.text.x  = element_text(angle=0, vjust=0.5, size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=15),
+           axis.text.y  = element_text(angle=0, vjust=0.5, size=13)) +
+  theme(axis.text.y=element_text(angle = 0, hjust = 0)) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 20, b = 10, l = 5))) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.text.x = element_text(margin = margin(t = 5, r = 5, b = 10, l = 5))) 
+ 
+
+c
+```
+
