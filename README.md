@@ -1,4 +1,4 @@
-# Klamath Reservoirs Time Series Analysis (2015-2020)
+# Klamath Reservoirs Time Series Analysis 
 Data analysis of algal blooms in two Klamath Reservoirs (Copco & Iron Gate) from 2015 - 2020 using Sentinel-2 imagery. 
 Four spectral indices (NDVI, NDCI, B8AB4, B3B2) applied to Sentinel-2 imagery were compared to in situ chlorophyll-a and Microcystin data. 
 
