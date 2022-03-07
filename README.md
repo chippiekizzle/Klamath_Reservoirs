@@ -1,6 +1,6 @@
 # Klamath Reservoirs Time Series Analysis 
-Data analysis of algal blooms in two Klamath Reservoirs (Copco & Iron Gate) from 2015 - 2020 using Sentinel-2 imagery. 
-Four spectral indices (NDVI, NDCI, B8AB4, B3B2) applied to Sentinel-2 imagery were compared to in situ chlorophyll-a and Microcystin data. 
+This repository involves data analysis of algal blooms in two Klamath Reservoirs (Copco & Iron Gate) from 2015 - 2020 using Sentinel-2 satellite imagery. 
+Four spectral indices (NDVI, NDCI, B8AB4, B3B2) applied to Sentinel-2 imagery were compared to in situ chlorophyll-a and microcystin toxin data. 
 
 ## Google Earth Engine Scripts
 * Download .csv files of the four spectral indices from Google Earth Engine using [this code](https://code.earthengine.google.com/2a174867fc402f1647e2e9e228d2644e). This is the bulk of the analysis. 
@@ -12,6 +12,6 @@ Four spectral indices (NDVI, NDCI, B8AB4, B3B2) applied to Sentinel-2 imagery we
 
 * Use the *Regression_Microcystin* R code to analyze toxins data from Copco & Iron Gate Reservoirs (2015-2020). 
 
-## In Situ Data
-* Chlorophyll-a and Microcystin in situ data are available on the [PacifiCorp website](https://www.pacificorp.com/energy/hydro/klamath-river/water-quality.html). 
+## In Situ Water Quality Data
+* Chlorophyll-a and microcystin in situ water quality data are available on the [PacifiCorp website](https://www.pacificorp.com/energy/hydro/klamath-river/water-quality.html). 
 
