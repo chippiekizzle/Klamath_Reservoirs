@@ -3,7 +3,7 @@ This repository involves data analysis of algal blooms in two Klamath Reservoirs
 Four spectral indices (NDVI, NDCI, B8AB4, B3B2) applied to Sentinel-2 imagery were compared to in situ chlorophyll-a and microcystin toxin data. 
 
 ## Google Earth Engine Scripts
-* Download .csv files of the four spectral indices from Google Earth Engine using [this code](https://code.earthengine.google.com/2a174867fc402f1647e2e9e228d2644e). This is the bulk of the analysis. 
+* Download .csv files of the four spectral indices from Google Earth Engine using [this code](https://code.earthengine.google.com/2a174867fc402f1647e2e9e228d2644e). This is the bulk of the analysis. It creates charts for each site (Copco, Below Copco, Iron Gate).
 
 * [This Google Earth Engine code](https://code.earthengine.google.com/641db50ef7baf4ac53c6eadb39487cb6) will plot full time series charts of the 3 sample locations of this study without regard to in situ sampling days. These are atmospherically corrected. This is mainly for comparison and display, rather than analysis. 
 
