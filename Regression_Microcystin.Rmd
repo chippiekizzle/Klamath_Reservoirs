@@ -1,7 +1,7 @@
 ---
 title: "Regression_Microcystin"
-author: "Chippie"
-date: "11/16/2021"
+author: "Kislik et al"
+date: "3/8/2022"
 output: html_document
 ---
 
@@ -87,3 +87,78 @@ c <-
 c
 ```
 
+Regression Equation
+```{r}
+ggplotRegression <- function (fit) {
+
+require(ggplot2)
+
+ggplot(fit$model, aes_string(x = names(fit$model)[2], y = names(fit$model)[1])) + 
+  geom_point(size = 3) +
+  stat_smooth(method = "lm", col = "#990000") +
+  labs(title = paste("Adj R2 = ",signif(summary(fit)$adj.r.squared, 5),
+                     "Intercept =",signif(fit$coef[[1]],5 ),
+                     " Slope =",signif(fit$coef[[2]], 5),
+                     " P =",signif(summary(fit)$coef[2,4], 5)))
+}
+```
+
+Microcystin vs. Chl-a at Copco (In Situ Linear Regression)
+```{r}
+
+Micro = Microcystin$Microcystin_C
+Chla = Microcystin$ChlA_C
+
+ggplotRegression(lm(Micro ~ Chla, data = Microcystin)) +
+  ylab("Microcystin (ug/L)") +
+  xlab("Chl-a (ug/L") + 
+  theme(axis.title.x = element_text(face="bold", colour="black", size=15),
+           axis.text.x  = element_text(angle=0, vjust=0.5, size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=15),
+           axis.text.y  = element_text(angle=0, vjust=0.5, size=13)) +
+  theme(axis.text.x=element_text(angle = 0, hjust = 0)) + 
+  theme(axis.text.y=element_text(angle = 0, hjust = 0)) +
+  theme(axis.title.x = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.text.x = element_text(margin = margin(t = 5, r = 5, b = 10, l = 5)))
+```
+
+Microcystin vs. Chl-a at Below Copco (In Situ Linear Regression)
+```{r}
+
+Micro = Microcystin$Microcystin_BC
+Chla = Microcystin$ChlA_BC
+
+ggplotRegression(lm(Micro ~ Chla, data = Microcystin)) +
+  ylab("Microcystin (ug/L)") +
+  xlab("Chl-a (ug/L") + 
+  theme(axis.title.x = element_text(face="bold", colour="black", size=15),
+           axis.text.x  = element_text(angle=0, vjust=0.5, size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=15),
+           axis.text.y  = element_text(angle=0, vjust=0.5, size=13)) +
+  theme(axis.text.x=element_text(angle = 0, hjust = 0)) + 
+  theme(axis.text.y=element_text(angle = 0, hjust = 0)) +
+  theme(axis.title.x = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.text.x = element_text(margin = margin(t = 5, r = 5, b = 10, l = 5)))
+```
+
+Microcystin vs. Chl-a at Iron Gate (In Situ Linear Regression)
+```{r}
+
+Micro = Microcystin$Microcystin_IG
+Chla = Microcystin$ChlA_IG
+
+ggplotRegression(lm(Micro ~ Chla, data = Microcystin)) +
+  ylab("Microcystin (ug/L)") +
+  xlab("Chl-a (ug/L") + 
+  theme(axis.title.x = element_text(face="bold", colour="black", size=15),
+           axis.text.x  = element_text(angle=0, vjust=0.5, size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=15),
+           axis.text.y  = element_text(angle=0, vjust=0.5, size=13)) +
+  theme(axis.text.x=element_text(angle = 0, hjust = 0)) + 
+  theme(axis.text.y=element_text(angle = 0, hjust = 0)) +
+  theme(axis.title.x = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0))) + 
+  theme(axis.text.x = element_text(margin = margin(t = 5, r = 5, b = 10, l = 5)))
+```

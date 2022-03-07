@@ -1,7 +1,7 @@
 ---
 title: "Regression_Chla_GEE"
-author: "Chippie"
-date: "11/16/2021"
+author: "Kislik et al"
+date: "3/8/2022"
 output: html_document
 ---
 
@@ -11,7 +11,7 @@ library(ggplot2)
 
 Read in the Data
 ```{r}
-Data <- read.csv("2016_2020_15m_BelowCopco_GEE.csv", header = TRUE)
+Data <- read.csv("2016_2020_15m_Copco_GEE.csv", header = TRUE)
 
 colnames(Data)[1] <- "Sample_Date"
 colnames(Data)
